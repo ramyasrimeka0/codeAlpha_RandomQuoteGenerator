@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quote Generator</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #dbeafe, #fce7f3);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      padding: 32px;
+      text-align: center;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #4338ca;
+    }
+
+    #quote {
+      margin: 28px 0 16px;
+      color: #333;
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
+
+    #author {
+      margin-bottom: 26px;
+      color: #666;
+      font-style: italic;
+    }
+
+    button {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      background: #4f46e5;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3730a3;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1>Random Quote Generator</h1>
+    <p id="quote">Click the button to get inspired!</p>
+    <p id="author"></p>
+    <button onclick="showQuote()">New Quote</button>
+  </main>
+
+  <script>
+    const quotes = [
+      {
+        text: "Believe you can and you're halfway there.",
+        author: "Theodore Roosevelt"
+      },
+      {
+        text: "It always seems impossible until it's done.",
+        author: "Nelson Mandela"
+      },
+      {
+        text: "The secret of getting ahead is getting started.",
+        author: "Mark Twain"
+      },
+      {
+        text: "Great things are done by a series of small things brought together.",
+        author: "Vincent van Gogh"
+      },
+      {
+        text: "You are never too old to set another goal or to dream a new dream.",
+        author: "C. S. Lewis"
+      }
+    ];
+
+    function showQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const selectedQuote = quotes[randomIndex];
+
+      document.getElementById("quote").textContent =
+        "“" + selectedQuote.text + "”";
+
+      document.getElementById("author").textContent =
+        "— " + selectedQuote.author;
+    }
+
+    showQuote();
+  </script>
+</body>
+</html>
